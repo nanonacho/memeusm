@@ -1,1 +1,0 @@
-Proyecto de curso introducción a la ingeniería.
