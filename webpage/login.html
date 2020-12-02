@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MemeUSM</title>
+    <link rel="stylesheet" href="css\bootstrap.min.css">
+     <link rel="stylesheet" href="css\style.css">
+     <script src="js\jquery.min.js"></script>
+     <script src="js\bootstrap.min.js"></script>
+     <script src="js\login.js"></script>
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyCNDzZnaz4qbFSOIXw-lLWW0b2-Da2Wg4g",
+        authDomain: "memeusm-80edf.firebaseapp.com",
+        databaseURL: "https://memeusm-80edf.firebaseio.com",
+        projectId: "memeusm-80edf",
+        storageBucket: "memeusm-80edf.appspot.com",
+        messagingSenderId: "214402086944",
+        appId: "1:214402086944:web:98e85e9c80e247387a2445",
+        measurementId: "G-BP2K1BK7ZJ"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    </script>
+
+</head>
+<body class="fondo">
+    
+
+<!–– Inicio de menu de navegacion ––>
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">MemesUSM</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ver memes de:</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Animales</a>
+          <a class="dropdown-item" href="#">Personas</a>
+        </div>
+        <li class="nav-item">
+        <a class="nav-link" href="#">Subir memes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Sobre nosotros</a>
+      </li>
+      </ul>
+      <div class="navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="login.html">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="register.html">Registro</a>
+            </li>
+        </ul>
+    </div>
+      </li>
+  </div>
+</nav>
+<!–– Fin de menu de navegacion ––>
+
+<!–– Inicio de cuerpo de pagina ––>
+<div class="container">
+<div class="jumbotron jumbotron-fluid sombra">
+  <div class="container">
+        <div class="container">
+        <h1>Bienvenido al menu de login</h1>
+        <label for="uname"><b>Email</b></label>
+        <input class="form-control" id="email" type="email" placeholder="Ingresa tu email" name="uname" required>
+  
+        <label for="psw"><b>Contraseña</b></label>
+        <input class="form-control" id="password" type="password" placeholder="Ingresa tu contraseña" name="psw" required>
+         <p>
+            <button onclick="login()" id="login" class="btn btn-success">Logueate</button>
+            <button onclick="logout()" id="logout" class="btn btn-danger">Sal de tu cuenta</button>
+            <label>
+         </p> 
+    </div>
+  </div>
+</div>
+</div>
+<!–– Fin de cuerpo de pagina ––>
+</body>
+</html>
