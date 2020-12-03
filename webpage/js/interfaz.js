@@ -1,3 +1,9 @@
+function Redirect() 
+    {  
+      document.getElementById("overlay").style.display = "none";
+        window.location="index.html"; 
+    } 
+
 function authState() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
@@ -17,10 +23,12 @@ function authState() {
 authState()
 function logout() {
     firebase.auth().signOut().then(function() {
-  alert("Has salido de tu cuenta!")
-            window.location.replace("index.html")
+      document.getElementById("overlay").style.display = "block";
+            setTimeout('Redirect()', 3000);
 }).catch(function(error) {
   // An error happened.
 });
     
 }
+
+
