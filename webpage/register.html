@@ -9,6 +9,7 @@
      <script src="js\jquery.min.js"></script>
      <script src="js\bootstrap.min.js"></script>
      <script src="js\register.js"></script>
+
      <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
@@ -49,7 +50,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ver memes de:</a>
@@ -58,7 +59,7 @@
           <a class="dropdown-item" href="#">Personas</a>
         </div>
         <li class="nav-item">
-        <a class="nav-link" href="#">Subir memes</a>
+        <a class="nav-link" id="upload" style="display: none;" href="#">Subir memes</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Sobre nosotros</a>
@@ -67,10 +68,13 @@
       <div class="navbar-collapse">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="login.html">Login</a>
+                <a class="nav-link" id="in" style="display: block;" href="login.html">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="register.html">Registro</a>
+                <a class="nav-link" id="reg" style="display: block;" href="register.html">Registro</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" onclick="logout()" id="logout" style="display: none;" href="#">Desloguearse</a>
             </li>
         </ul>
     </div>
@@ -82,20 +86,26 @@
 <!–– Inicio de cuerpo de pagina ––>
 <div class="container">
 <div class="jumbotron jumbotron-fluid sombra">
-  <div class="container">
+  
+    <div class="container">
         <div class="container">
         <h1>Bienvenido al menu de registro</h1>
+        <div class="form-group">
         <label for="uname"><b>Email</b></label>
         <input class="form-control" id="email" type="email" placeholder="Ingresa tu email" name="uname" required>
-  
-        <label for="psw"><b>Contraseña</b></label>
-        <input class="form-control" id="password" type="password" placeholder="Ingresa tu contraseña" name="psw" required>
-         <p>
+        </div>  
+        <div class="form-group">
+         <label for="psw"><b>Contraseña</b></label>
+         <input class="form-control" id="password" type="password" placeholder="Ingresa tu contraseña" name="psw" required>
+         <input class="form-control" id="password_conf" type="password" placeholder="Reingresa tu contraseña" name="psw" required>
+        </div>
+        <br>
             <button onclick="register()" id="register" class="btn btn-primary">Registrate</button>
-            <button onclick="logout()" id="logout" class="btn btn-danger">Sal de tu cuenta</button>
-            <label>
-         </p> 
+            
     </div>
+
+ 
+  
   </div>
 </div>
 </div>
