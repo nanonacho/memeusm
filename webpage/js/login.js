@@ -13,9 +13,23 @@ function login() {
     var password = document.getElementById("password");
     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
     firebase.auth().signInWithEmailAndPassword(email.value, password.value).then(() => {
-        
         authState()
-      }).catch(e => alert(e.message))
+      }).catch(function(error){
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        if (errorCode == "auth/wrong-password") {
+          alert("¡Contraseña equivocada!");
+        }
+        else if (errorCode == "auth/invalid-email") {
+            alert("¡Email inválido!");
+        }
+        else if (errorCode == "auth/user-not-found") {
+            alert("¡Usuario no encontrado!");
+        }
+        else {
+          alert(errorMessage);
+        }
+      })
 }
 
 
