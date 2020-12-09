@@ -39,7 +39,11 @@ function mostrarMemes(){
   });
   dicPosts.reverse()
   dicPosts.forEach(function(post){
-    document.getElementById("memeContainer").insertAdjacentHTML('beforeend', `<img src=${post.imgurl} class ="img-thumbnail" style="height: 45%; width: 45%; margin: 10px; border-radius:10px;">`)
+    document.getElementById("memeContainer").insertAdjacentHTML('beforeend', `
+      <figure class="sombra figure rounded mx-auto " style="height: 45%; width: 45%; background-color: #c8cbce; ">
+        <img src=${post.imgurl} class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
+        <figcaption " class="figure-caption text-center">Descripcion.</figcaption>
+      </figure>`)
   })
 })
 }
@@ -55,7 +59,11 @@ function mostrarMemesPersonas(){
   });
   dicPosts.reverse()
   dicPosts.forEach(function(post){
-    document.getElementById("memePersonasContainer").insertAdjacentHTML('beforeend', `<img src=${post.imgurl} class ="img-thumbnail" style="height: 45%; width: 45%; margin: 10px; border-radius:10px;">`)
+    document.getElementById("memePersonasContainer").insertAdjacentHTML('beforeend', `
+      <figure class="sombra figure rounded mx-auto " style="height: 45%; width: 45%; background-color: #c8cbce; ">
+        <img src=${post.imgurl} class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
+        <figcaption " class="figure-caption text-center">Descripcion.</figcaption>
+      </figure>`)
   })
 })
 }
@@ -71,7 +79,11 @@ function mostrarMemesGatos(){
   });
   dicPosts.reverse()
   dicPosts.forEach(function(post){
-    document.getElementById("memeGatosContainer").insertAdjacentHTML('beforeend', `<img src=${post.imgurl} class ="img-thumbnail" style="height: 45%; width: 45%; margin: 10px; border-radius:10px;">`)
+    document.getElementById("memeGatosContainer").insertAdjacentHTML('beforeend', `
+      <figure class="sombra figure rounded mx-auto " style="height: 45%; width: 45%; background-color: #c8cbce; ">
+        <img src=${post.imgurl} class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
+        <figcaption " class="figure-caption text-center">Descripcion.</figcaption>
+      </figure>`)
   })
 })
 }
@@ -87,7 +99,11 @@ function mostrarMemesPerros(){
   });
   dicPosts.reverse()
   dicPosts.forEach(function(post){
-    document.getElementById("memePerrosContainer").insertAdjacentHTML('beforeend', `<img src=${post.imgurl} class ="img-thumbnail" style="height: 45%; width: 45%; margin: 10px; border-radius:10px;">`)
+    document.getElementById("memePerrosContainer").insertAdjacentHTML('beforeend', `
+      <figure class="sombra figure rounded mx-auto " style="height: 45%; width: 45%; background-color: #c8cbce; ">
+        <img src=${post.imgurl} class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
+        <figcaption " class="figure-caption text-center">Descripcion.</figcaption>
+      </figure>`)
   })
 })
 }
