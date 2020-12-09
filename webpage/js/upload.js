@@ -1,3 +1,4 @@
+
 async function publicar(){
     var user = firebase.auth().currentUser
     console.log(user)
@@ -6,16 +7,19 @@ async function publicar(){
         var email = user.email
         var img = document.getElementById("FormControlFile").files[0]
         await storageRef.child("memes/" + img.name).put(img)
-        await storageRef.child("memes/"+img.name).getDownloadURL().then(function(url){
-            console.log(url)
-            firebase.firestore().collection("posts").add({
-                autor : email,
-                etiquetas : "",
-                likes : 0,
-                imgurl : url
+        await storageRef.child("memes/"+img.name).getMetadata().then(async function(metadata){
+            await storageRef.child("memes/"+img.name).getDownloadURL().then(function(url){
+                console.log(metadata)
+                firebase.firestore().collection("posts").add({
+                    autor : email,
+                    etiquetas : "",
+                    likes : 0,
+                    imgurl : url,
+                    fecha : metadata.timeCreated
+                })
             })
-        alert("Se ha publicado")
-        })
+            alert("Se ha publicado")
+    })
 
     }
     else{
