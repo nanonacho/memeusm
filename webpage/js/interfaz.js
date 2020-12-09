@@ -32,7 +32,6 @@ function logout() {
 
 function mostrarMemes(){
   posts = firebase.firestore().collection("posts").orderBy("fecha")
-  memeContainer = document.getElementById("memeContainer")
   posts.get().then(function(querySnapshot) {
     var dicPosts = []
     querySnapshot.forEach(function(doc) {
@@ -41,6 +40,54 @@ function mostrarMemes(){
   dicPosts.reverse()
   dicPosts.forEach(function(post){
     document.getElementById("memeContainer").insertAdjacentHTML('beforeend', `<img src=${post.imgurl} class ="img-thumbnail" style="height: 45%; width: 45%; margin: 10px; border-radius:10px;">`)
+  })
+})
+}
+
+function mostrarMemesPersonas(){
+  posts = firebase.firestore().collection("posts").orderBy("fecha")
+  posts.get().then(function(querySnapshot) {
+    var dicPosts = []
+    querySnapshot.forEach(function(doc) {
+      if (doc.data().etiquetas.includes("person")){
+        dicPosts.push(doc.data())
+      }
+  });
+  dicPosts.reverse()
+  dicPosts.forEach(function(post){
+    document.getElementById("memePersonasContainer").insertAdjacentHTML('beforeend', `<img src=${post.imgurl} class ="img-thumbnail" style="height: 45%; width: 45%; margin: 10px; border-radius:10px;">`)
+  })
+})
+}
+
+function mostrarMemesGatos(){
+  posts = firebase.firestore().collection("posts").orderBy("fecha")
+  posts.get().then(function(querySnapshot) {
+    var dicPosts = []
+    querySnapshot.forEach(function(doc) {
+      if (doc.data().etiquetas.includes("cat")){
+        dicPosts.push(doc.data())
+      }
+  });
+  dicPosts.reverse()
+  dicPosts.forEach(function(post){
+    document.getElementById("memeGatosContainer").insertAdjacentHTML('beforeend', `<img src=${post.imgurl} class ="img-thumbnail" style="height: 45%; width: 45%; margin: 10px; border-radius:10px;">`)
+  })
+})
+}
+
+function mostrarMemesPerros(){
+  posts = firebase.firestore().collection("posts").orderBy("fecha")
+  posts.get().then(function(querySnapshot) {
+    var dicPosts = []
+    querySnapshot.forEach(function(doc) {
+      if (doc.data().etiquetas.includes("dog")){
+        dicPosts.push(doc.data())
+      }
+  });
+  dicPosts.reverse()
+  dicPosts.forEach(function(post){
+    document.getElementById("memePerrosContainer").insertAdjacentHTML('beforeend', `<img src=${post.imgurl} class ="img-thumbnail" style="height: 45%; width: 45%; margin: 10px; border-radius:10px;">`)
   })
 })
 }

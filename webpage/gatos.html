@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meme Upload</title>
+    <title>Memes</title>
     <link rel="stylesheet" href="css\bootstrap.min.css">
     <link rel="stylesheet" href="css\style.css">
     <script src="js\jquery.min.js"></script>
     <script src="js\bootstrap.min.js"></script>
-    <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
     
     <!-- The core Firebase JS SDK is always required and must be listed first -->
    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
-   <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-storage.js"></script>
 
    <!-- TODO: Add SDKs for Firebase products that you want to use
        https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -37,10 +35,9 @@
    firebase.initializeApp(firebaseConfig);
    firebase.analytics();
    </script>
-   <script src="js\upload.js"></script>
    <script src="js\interfaz.js"></script>
 </head>
-<body>
+<body class="fondo" onload="mostrarMemesGatos()">
     <!–– Inicio de menu de navegacion ––>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="#">MemesUSM</a>
@@ -56,17 +53,18 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ver memes de:</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="perros.html">Perros</a>
-              <a class="dropdown-item" href="gatos.html">Gatos</a>
-              <a class="dropdown-item" href="personas.html">Personas</a>
+                <a class="dropdown-item" href="perros.html">Perros</a>
+                <a class="dropdown-item" href="gatos.html">Gatos</a>
+                <a class="dropdown-item" href="personas.html">Personas</a>
             </div>
           <li class="nav-item">
             <a class="nav-link" href="about.html">Sobre nosotros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="upload" style="display: none;" href="#">Subir memes</a>
+            <a class="nav-link" id="upload" style="display: none;" href="upload.html">Subir memes</a>
           </li>
           </ul>
+          <button class="btn btn-secondary" style="margin-left: 20%;" onclick="location.reload()">Actualizar</button>
           <div class="navbar-collapse">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -84,29 +82,27 @@
       </div>
     </nav>
     <!–– Fin de menu de navegacion ––>
+
     <!–– Inicio de cuerpo de pagina ––>
 
     <div id="overlay">
-        <div class="container" >
-        <div class="jumbotron alert alert-danger" style="margin-top: 100px;">
-        <h1 class="lead ">Te has deslogueado con exito.</h1>
-        <h1 class="lead ">Redireccionando a la pagina principal por favor espere...</h1>
+    <div class="container" >
+    <div class="jumbotron alert alert-danger" style="margin-top: 100px;">
+    <h1 class="lead ">Te has deslogueado con exito.</h1>
+    <h1 class="lead ">Redireccionando a la pagina principal por favor espere...</h1>
     </div>
     </div>
     </div>
 
+    <div class="container">
     <div class="jumbotron jumbotron-fluid sombra">
-        <div class="container">
-            <div class="container">
-                <h1>¡Sube tus memes!</h1>
-                <div class="form-group">
-                    <label for="FormControlFile">Selecciona la imagen a subir</label>
-                    <input type="file" class="form-control-file" id="FormControlFile" style="width: auto;">
-                    <button class="btn btn-success" style="margin-top: 10px;" onclick="publicar()">Publicar</button>
-                </div>
-            </div>
-        </div>
+    <div class="container">
+        <h1 class="display-4">¡Disfruta los memes!</h1>
+        <p class="lead">
+        <div class ="container"id="memeGatosContainer"></div>
     </div>
-    <!–– Fin de cuerpo de pagina ––>
+    </div>
+    </div>
+<!–– Fin de cuerpo de pagina ––>
 </body>
 </html>
