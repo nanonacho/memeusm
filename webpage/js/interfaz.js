@@ -33,7 +33,7 @@ function logout() {
 function mostrarMemes(){
   posts = firebase.firestore().collection("posts").orderBy("fecha")
   memeContainer = document.getElementById("memeContainer")
-  posts.onSnapshot(function(querySnapshot) {
+  posts.get().then(function(querySnapshot) {
     var dicPosts = []
     querySnapshot.forEach(function(doc) {
       dicPosts.push(doc.data())
