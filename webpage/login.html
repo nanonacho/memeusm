@@ -6,6 +6,7 @@
      <title>MemeUSM</title>
      <link rel="stylesheet" href="css\bootstrap.min.css">
      <link rel="stylesheet" href="css\style.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
      <script src="js\jquery.min.js"></script>
      <script src="js\bootstrap.min.js"></script>
      <script src="js\login.js"></script>
@@ -41,7 +42,7 @@
     
 
 <!–– Inicio de menu de navegacion ––>
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" id="topheader">
   <a class="navbar-brand" href="#">MemesUSM</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -49,33 +50,33 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Inicio <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ver memes de:</a>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-images"></i> Ver memes de:</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="perros.html">Perros</a>
-          <a class="dropdown-item" href="gatos.html">Gatos</a>
-          <a class="dropdown-item" href="personas.html">Personas</a>
+          <a class="dropdown-item" href="perros.html"><i class="fas fa-dog"></i> Perros</a>
+          <a class="dropdown-item" href="gatos.html"><i class="fas fa-cat"></i> Gatos</a>
+          <a class="dropdown-item" href="personas.html"><i class="fas fa-user-friends"></i> Personas</a>
         </div>
-      <li class="nav-item">
-        <a class="nav-link" href="about.html">Sobre nosotros</a>
+      <li class="nav-item ">
+        <a class="nav-link" href="about.html"><i class="fas fa-address-card"></i> Sobre nosotros</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="upload" style="display: none;" href="#">Subir memes</a>
+        <a class="nav-link" id="upload" style="display: none;" href="upload.html"><i class="fas fa-upload"></i> Subir memes</a>
       </li>
       </ul>
       <div class="navbar-collapse">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" id="in" style="display: block;" href="login.html">Login</a>
+            <li class="nav-item active">
+                <a class="nav-link" id="in" style="display: block;" href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="reg" style="display: block;" href="register.html">Registro</a>
+                <a class="nav-link" id="reg" style="display: block;" href="register.html"><i class="far fa-edit"></i> Registro</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" onclick="logout()" id="logout" style="display: none;" href="#">Desloguearse</a>
+                <a class="nav-link" onclick="logout()" id="logout" style="display: none;" href="#"><i class="fas fa-address-card"></i> Desloguearse</a>
             </li>
         </ul>
     </div>
