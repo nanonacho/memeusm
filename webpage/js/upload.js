@@ -46,6 +46,7 @@ async function publicar(){
                     autor : email,
                     etiquetas : memeEtiquetas,
                     likes : 0,
+                    likes_user:[],
                     imgurl : url,
                     fecha : metadata.timeCreated
                 })
