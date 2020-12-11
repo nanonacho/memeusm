@@ -1,38 +1,24 @@
-let objectDetector;
-let objects = []
-
-function detect() {
-    objectDetector.detect(img, function (err, results) {
-      if (err) {
-        console.log(err);
-        return
-      }
-    objects = results;
-    console.log(results+"detect")
-    });
-  }
-
-async function cargarImagen(img){
-    var reader  = new FileReader();
-    reader.onloadend = function () {
-        etiquetarMeme(reader.result)
-    }
-    reader.readAsDataURL(img)
-}
-async function etiquetarMeme(url){
-    img = new Image();
-    img.src = url;
-    objectDetector = await ml5.objectDetector('cocossd', detect)
-}
-
 async function publicar(){
     var user = firebase.auth().currentUser
     if (user){
+        let objectDetector;
+        let objects = []
         var storageRef = firebase.storage().ref();
         var email = user.email
         var img = document.getElementById("FormControlFile").files[0]
+        var urlImagen = URL.createObjectURL(img)
+        imagen = new Image();
+        imagen.src = urlImagen;
+        objectDetector = await ml5.objectDetector('cocossd')
+        objectDetector.detect(imagen, function (err, results) {
+            if (err) {
+              console.log(err);
+              return
+            }
+          objects = results;
+          console.log(results)
+          });
         let memeEtiquetas = []
-        await cargarImagen(img)
         await storageRef.child("memes/" + img.name).put(img)
         await storageRef.child("memes/"+img.name).getMetadata().then(async function(metadata){
             await storageRef.child("memes/"+img.name).getDownloadURL().then(async function(url){
