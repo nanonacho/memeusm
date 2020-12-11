@@ -30,8 +30,7 @@ function logout() {
 }); 
 }
 function check(url){
-  x = url
-  document.getElementById(x).style.display = "none"; 
+  document.getElementById(url).remove(); 
 
 }
 
