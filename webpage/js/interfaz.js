@@ -50,12 +50,46 @@ function mostrarMemes(){
       document.getElementById("memeContainer").insertAdjacentHTML('beforeend', `
       <figure id =${post.imgurl} class="sombra figure rounded mx-auto" style="height: 45%; width: 45%; background-color: #c8cbce; display:block; ">
         <img onerror="check('${x}')" src=${post.imgurl} class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
-        <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} </figcaption>
+        <figcaption class="boton-admin figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} <button id="borrar" style="display: none;" class="btn btn-danger">X Borrar</button> </figcaption>
       </figure>`)
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl"){
+              var btn = document.createElement("BUTTON");
+              var btn_like = document.createElement("BUTTON");
 
-    
+              btn.innerHTML = "Borrar";
+              btn_like.innerHTML = "Like"
+
+              btn.classList.add('btn');
+              btn.classList.add('btn-danger');
+
+              btn_like.classList.add('btn');
+              btn_like.classList.add('btn-success');
+
+              document.getElementById(x).appendChild(btn);
+              document.getElementById(x).appendChild(btn_like);
+
+              btn.onclick = function(){console.log("borrar");}
+              btn_like.onclick = function(){console.log("laik");}
+             
+            }
+            else if(user.email != null){
+              var btn_like = document.createElement("BUTTON");
+              btn_like.innerHTML = "Like";
+              btn_like.classList.add('btn');
+              btn_like.classList.add('btn-success');
+              document.getElementById(x).appendChild(btn_like);
+              btn_like.onclick = function(){console.log("laik");}
+                }
+        } 
+      });
+
+      
   })
+  
 })
+
 }
 
 function mostrarMemesPersonas(){
@@ -75,6 +109,38 @@ function mostrarMemesPersonas(){
         <img onerror="check('${x}')" src=${post.imgurl} id =${post.imgurl} class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
         <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} </figcaption>
       </figure>`)
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl"){
+              var btn = document.createElement("BUTTON");
+              var btn_like = document.createElement("BUTTON");
+
+              btn.innerHTML = "Borrar";
+              btn_like.innerHTML = "Like"
+
+              btn.classList.add('btn');
+              btn.classList.add('btn-danger');
+
+              btn_like.classList.add('btn');
+              btn_like.classList.add('btn-success');
+
+              document.getElementById(x).appendChild(btn);
+              document.getElementById(x).appendChild(btn_like);
+
+              btn.onclick = function(){console.log("borrar");}
+              btn_like.onclick = function(){console.log("laik");}
+             
+            }
+            else if(user.email != null){
+              var btn_like = document.createElement("BUTTON");
+              btn_like.innerHTML = "Like";
+              btn_like.classList.add('btn');
+              btn_like.classList.add('btn-success');
+              document.getElementById(x).appendChild(btn_like);
+              btn_like.onclick = function(){console.log("laik");}
+                }
+        } 
+      });
   })
 })
 }
@@ -96,6 +162,38 @@ function mostrarMemesGatos(){
         <img onerror="check('${x}')" src=${post.imgurl}  class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
         <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} </figcaption>
       </figure>`)
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl"){
+              var btn = document.createElement("BUTTON");
+              var btn_like = document.createElement("BUTTON");
+
+              btn.innerHTML = "Borrar";
+              btn_like.innerHTML = "Like"
+
+              btn.classList.add('btn');
+              btn.classList.add('btn-danger');
+
+              btn_like.classList.add('btn');
+              btn_like.classList.add('btn-success');
+
+              document.getElementById(x).appendChild(btn);
+              document.getElementById(x).appendChild(btn_like);
+
+              btn.onclick = function(){console.log("borrar");}
+              btn_like.onclick = function(){console.log("laik");}
+             
+            }
+            else if(user.email != null){
+              var btn_like = document.createElement("BUTTON");
+              btn_like.innerHTML = "Like";
+              btn_like.classList.add('btn');
+              btn_like.classList.add('btn-success');
+              document.getElementById(x).appendChild(btn_like);
+              btn_like.onclick = function(){console.log("laik");}
+                }
+        } 
+      });
   })
 })
 }
@@ -117,6 +215,38 @@ function mostrarMemesPerros(){
         <img onerror="check('${x}')" src=${post.imgurl}  class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
         <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} </figcaption>
       </figure>`)
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl"){
+              var btn = document.createElement("BUTTON");
+              var btn_like = document.createElement("BUTTON");
+
+              btn.innerHTML = "Borrar";
+              btn_like.innerHTML = "Like"
+
+              btn.classList.add('btn');
+              btn.classList.add('btn-danger');
+
+              btn_like.classList.add('btn');
+              btn_like.classList.add('btn-success');
+
+              document.getElementById(x).appendChild(btn);
+              document.getElementById(x).appendChild(btn_like);
+
+              btn.onclick = function(){console.log("borrar");}
+              btn_like.onclick = function(){console.log("laik");}
+             
+            }
+            else if(user.email != null){
+              var btn_like = document.createElement("BUTTON");
+              btn_like.innerHTML = "Like";
+              btn_like.classList.add('btn');
+              btn_like.classList.add('btn-success');
+              document.getElementById(x).appendChild(btn_like);
+              btn_like.onclick = function(){console.log("laik");}
+                }
+        } 
+      });
   })
 })
 }
@@ -141,6 +271,38 @@ function mostrarMemesOtrosAnimales(){
         <img onerror="check('${x}')" src=${post.imgurl}  class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
         <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} </figcaption>
       </figure>`)
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl"){
+              var btn = document.createElement("BUTTON");
+              var btn_like = document.createElement("BUTTON");
+
+              btn.innerHTML = "Borrar";
+              btn_like.innerHTML = "Like"
+
+              btn.classList.add('btn');
+              btn.classList.add('btn-danger');
+
+              btn_like.classList.add('btn');
+              btn_like.classList.add('btn-success');
+
+              document.getElementById(x).appendChild(btn);
+              document.getElementById(x).appendChild(btn_like);
+
+              btn.onclick = function(){console.log("borrar");}
+              btn_like.onclick = function(){console.log("laik");}
+             
+            }
+            else if(user.email != null){
+              var btn_like = document.createElement("BUTTON");
+              btn_like.innerHTML = "Like";
+              btn_like.classList.add('btn');
+              btn_like.classList.add('btn-success');
+              document.getElementById(x).appendChild(btn_like);
+              btn_like.onclick = function(){console.log("laik");}
+                }
+        } 
+      });
   })
 })
 }

@@ -8,7 +8,8 @@ function authState() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             document.getElementById("overlay").style.display = "block";
-            setTimeout('Redirect()', 3000);  
+            setTimeout('Redirect()', 3000);
+              
 
         } else {
             document.getElementById("overlay").style.display = "none";
