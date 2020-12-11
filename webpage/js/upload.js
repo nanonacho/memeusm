@@ -22,8 +22,9 @@ async function publicar(){
         await storageRef.child("memes/" + img.name).put(img)
         await storageRef.child("memes/"+img.name).getMetadata().then(async function(metadata){
             await storageRef.child("memes/"+img.name).getDownloadURL().then(async function(url){
+                var otrosAnimales = ["bird","horse","sheep","cow","elephant","bear","zebra","giraffe"]
                 objects.forEach(function(objeto){
-                    if (!memeEtiquetas.includes(objeto.label) && (objeto.label == "person" || objeto.label == "dog" || objeto.label == "cat")){
+                    if (!memeEtiquetas.includes(objeto.label) && (objeto.label == "person" || objeto.label == "dog" || objeto.label == "cat" || otrosAnimales.includes(objeto.label))){
                         console.log(objeto.label)
                         memeEtiquetas.push(objeto.label)
                     }

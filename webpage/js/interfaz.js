@@ -120,3 +120,27 @@ function mostrarMemesPerros(){
   })
 })
 }
+
+function mostrarMemesOtrosAnimales(){
+  posts = firebase.firestore().collection("posts").orderBy("fecha")
+  posts.get().then(function(querySnapshot) {
+    var dicPosts = []
+    var otrosAnimales = ["bird","horse","sheep","cow","elephant","bear","zebra","giraffe"]
+    querySnapshot.forEach(function(doc) {
+      for (animal in otrosAnimales){
+        if (doc.data().etiquetas.includes(otrosAnimales[animal])){
+          dicPosts.push(doc.data())
+        }
+      }
+  });
+  dicPosts.reverse()
+  dicPosts.forEach(function(post){
+    var x = post.imgurl
+    document.getElementById("memeAnimalesContainer").insertAdjacentHTML('beforeend', `
+      <figure id =${post.imgurl} class="sombra figure rounded mx-auto " style="height: 45%; width: 45%; background-color: #c8cbce; ">
+        <img onerror="check('${x}')" src=${post.imgurl}  class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
+        <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} </figcaption>
+      </figure>`)
+  })
+})
+}
