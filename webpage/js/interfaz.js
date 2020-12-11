@@ -48,7 +48,6 @@ function mostrarMemes(){
   dicPosts.reverse()
   dicPosts.forEach(function(post){
       var x = post.imgurl
-      console.log(x)
       document.getElementById("memeContainer").insertAdjacentHTML('beforeend', `
       <figure id =${post.imgurl} class="sombra figure rounded mx-auto" style="height: 45%; width: 45%; background-color: #c8cbce; display:block; ">
         <img onerror="check('${x}')" src=${post.imgurl} class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
@@ -71,9 +70,10 @@ function mostrarMemesPersonas(){
   });
   dicPosts.reverse()
   dicPosts.forEach(function(post){
+    var x = post.imgurl
     document.getElementById("memePersonasContainer").insertAdjacentHTML('beforeend', `
-      <figure class="sombra figure rounded mx-auto "  style="height: 45%; width: 45%; background-color: #c8cbce; ">
-        <img src=${post.imgurl} id =${post.imgurl} class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
+      <figure id =${post.imgurl} class="sombra figure rounded mx-auto "  style="height: 45%; width: 45%; background-color: #c8cbce; ">
+        <img onerror="check('${x}')" src=${post.imgurl} id =${post.imgurl} class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
         <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} </figcaption>
       </figure>`)
   })
@@ -91,9 +91,10 @@ function mostrarMemesGatos(){
   });
   dicPosts.reverse()
   dicPosts.forEach(function(post){
+    var x = post.imgurl
     document.getElementById("memeGatosContainer").insertAdjacentHTML('beforeend', `
-      <figure class="sombra figure rounded mx-auto " style="height: 45%; width: 45%; background-color: #c8cbce; ">
-        <img src=${post.imgurl} id =${post.imgurl} class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
+      <figure id =${post.imgurl} class="sombra figure rounded mx-auto " style="height: 45%; width: 45%; background-color: #c8cbce; ">
+        <img onerror="check('${x}')" src=${post.imgurl}  class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
         <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} </figcaption>
       </figure>`)
   })
@@ -111,9 +112,10 @@ function mostrarMemesPerros(){
   });
   dicPosts.reverse()
   dicPosts.forEach(function(post){
+    var x = post.imgurl
     document.getElementById("memePerrosContainer").insertAdjacentHTML('beforeend', `
-      <figure class="sombra figure rounded mx-auto " style="height: 45%; width: 45%; background-color: #c8cbce; ">
-        <img src=${post.imgurl} id =${post.imgurl} class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
+      <figure id =${post.imgurl} class="sombra figure rounded mx-auto " style="height: 45%; width: 45%; background-color: #c8cbce; ">
+        <img onerror="check('${x}')" src=${post.imgurl}  class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
         <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} </figcaption>
       </figure>`)
   })
