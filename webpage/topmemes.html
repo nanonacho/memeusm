@@ -3,19 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meme Upload</title>
+    <title>Memes</title>
     <link rel="stylesheet" href="css\bootstrap.min.css">
     <link rel="stylesheet" href="css\style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <script src="js\jquery.min.js"></script>
     <script src="js\bootstrap.min.js"></script>
-    <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
     
     <!-- The core Firebase JS SDK is always required and must be listed first -->
    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
-   <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-storage.js"></script>
 
    <!-- TODO: Add SDKs for Firebase products that you want to use
        https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -38,11 +36,10 @@
    firebase.initializeApp(firebaseConfig);
    firebase.analytics();
    </script>
-   <script src="js\upload.js"></script>
    <script src="js\interfaz.js"></script>
 </head>
-<body>
-   <!–– Inicio de menu de navegacion ––>
+<body class="fondo" onload="mostrarMemesOtrosAnimales()">
+    <!–– Inicio de menu de navegacion ––>
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" id="topheader">
   <a class="navbar-brand" href="#">MemesUSM</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,17 +55,17 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-images "></i> Ver memes de:</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="perros.html"><i class="fas fa-dog"></i> Perros</a>
-          <a class="dropdown-item" href="gatos.html"><i class="fas fa-cat"></i> Gatos</a>
+          <a class="dropdown-item " href="gatos.html"><i class="fas fa-cat"></i> Gatos</a>
           <a class="dropdown-item" href="otrosAnimales.html"><i class="fas fa-horse"></i> Otros animales</a>
           <a class="dropdown-item" href="personas.html"><i class="fas fa-user-friends"></i> Personas</a>
         </div>
-        <li class="nav-item">
+        <li class="nav-item active">
         <a class="nav-link" href="topmemes.html"><i class="fas fa-medal"></i> Top memes</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="about.html"><i class="fas fa-address-card"></i> Sobre nosotros</a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" id="upload" style="display: none;" href="upload.html"><i class="fas fa-upload"></i> Subir memes</a>
       </li>
       </ul>
@@ -89,31 +86,27 @@
   </div>
 </nav>
 <!–– Fin de menu de navegacion ––>
+
     <!–– Inicio de cuerpo de pagina ––>
 
     <div id="overlay">
-        <div class="container" >
-        <div class="jumbotron alert alert-danger" style="margin-top: 100px;">
-        <h1 class="lead ">Te has deslogueado con exito.</h1>
-        <h1 class="lead ">Redireccionando a la pagina principal por favor espere...</h1>
-    </div>
-    </div>
-    </div>
     <div class="container" >
-    <div class="jumbotron jumbotron-fluid sombra">
-        <div class="container">
-            <div class="container">
-                <h1>¡Sube tus memes!</h1>
-                <div class="form-group">
-                    <label for="FormControlFile">Selecciona la imagen a subir</label>
-                    <input type="file" class="form-control-file" id="FormControlFile" style="width: auto;">
-                    <button class="btn btn-success" style="margin-top: 10px;" onclick="publicar()">Publicar</button>
-                </div>
-            </div>
-        </div>
+    <div class="jumbotron alert alert-danger" style="margin-top: 100px;">
+    <h1 class="lead ">Te has deslogueado con exito.</h1>
+    <h1 class="lead ">Redireccionando a la pagina principal por favor espere...</h1>
     </div>
-</div>
-    
-    <!–– Fin de cuerpo de pagina ––>
+    </div>
+    </div>
+
+    <div class="container fondo_dos">
+    <div class="jumbotron jumbotron-fluid sombra">
+    <div class="container">
+        <h1 class="display-4">¡Disfruta los memes!</h1>
+        <p class="lead">
+        <div class ="d-flex flex-column"id="memeAnimalesContainer"></div>
+    </div>
+    </div>
+    </div>
+<!–– Fin de cuerpo de pagina ––>
 </body>
 </html>
