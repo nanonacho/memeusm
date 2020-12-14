@@ -33,6 +33,13 @@ function check(url){
   document.getElementById(url).remove(); 
 
 }
+function tieneLikes(id,likes){
+	if(likes == 0){
+		document.getElementById(id).remove(); 
+	}
+  
+
+}
 
 function mostrarMemes(){
 
@@ -138,12 +145,13 @@ function mostrarMemesTop(){
   dicPosts.forEach(function(post){
       var x = post.imgurl
       document.getElementById("memesTop").insertAdjacentHTML('beforeend', `
-      <figure id =${post.imgurl} class="sombra figure rounded mx-auto" style="height: 45%; width: 45%; background-color: #c8cbce; display:block; ">
+      <figure id =${post.imgurl} class="sombra figure rounded mx-auto" style="height: 45%; width: 45%; background-color: #f4823f; display:block; ">
         <img onerror="check('${x}')" src=${post.imgurl} class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
         <figcaption class="boton-admin figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} <button id="borrar" style="display: none;" class="btn btn-danger">X Borrar</button> </figcaption>
       </figure>`)
+      tieneLikes(post.imgurl, post.likes)
       firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
+        if (user && post.likes>0 ) {
             if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl" || user.email == "paolo.garcia@usm.cl"){
               var btn = document.createElement("BUTTON");
               var btn_like = document.createElement("BUTTON",{id: x});
@@ -317,6 +325,7 @@ function mostrarMemesGatos(){
   });
   dicPosts.reverse()
   dicPosts.forEach(function(post){
+
     var x = post.imgurl
     document.getElementById("memeGatosContainer").insertAdjacentHTML('beforeend', `
       <figure id =${post.imgurl} class="sombra figure rounded mx-auto " style="height: 45%; width: 45%; background-color: #c8cbce; ">
