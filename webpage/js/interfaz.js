@@ -34,7 +34,6 @@ function check(url){
 
 }
 
-
 function mostrarMemes(){
 
   posts = firebase.firestore().collection("posts").orderBy("fecha")
@@ -54,9 +53,9 @@ function mostrarMemes(){
       </figure>`)
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl"){
+            if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl" || user.email == "paolo.garcia@usm.cl"){
               var btn = document.createElement("BUTTON");
-              var btn_like = document.createElement("BUTTON");
+              var btn_like = document.createElement("BUTTON",{id: x});
 
               btn.innerHTML = "Borrar";
               btn_like.innerHTML = "Like"
@@ -66,21 +65,57 @@ function mostrarMemes(){
 
               btn_like.classList.add('btn');
               btn_like.classList.add('btn-success');
-
+              btn_like.classList.add('btn-lg');
+              if(post.likes_user.includes(user.email)){
+                btn_like.setAttribute("disabled","")
+              }
               document.getElementById(x).appendChild(btn);
               document.getElementById(x).appendChild(btn_like);
 
               btn.onclick = function(){console.log("borrar");}
-              btn_like.onclick = function(){console.log("laik");}
+              //btn_like.setAttribute("onclick",`likes(${x},${user.email})`)
+              btn_like.onclick = function(){
+                var posts = firebase.firestore().collection("posts")
+                posts.get().then(function(querySnapshot) {
+                  querySnapshot.forEach(function(doc) {
+                    if (doc.data().imgurl == x){
+                      var id = doc.id
+                      posts.doc(id).update({
+                        likes: firebase.firestore.FieldValue.increment(1),
+                        likes_user: firebase.firestore.FieldValue.arrayUnion(user.email)
+                      })
+                    }
+                  });
+                })
+                btn_like.setAttribute("disabled","")
+              }
              
             }
-            else if(user.email != null){
-              var btn_like = document.createElement("BUTTON");
+            else{
+              var btn_like = document.createElement("BUTTON",{id: x});
               btn_like.innerHTML = "Like";
               btn_like.classList.add('btn');
               btn_like.classList.add('btn-success');
+              btn_like.classList.add('btn-lg');
+              if(post.likes_user.includes(user.email)){
+                btn_like.setAttribute("disabled","")
+              }
               document.getElementById(x).appendChild(btn_like);
-              btn_like.onclick = function(){console.log("laik");}
+              btn_like.onclick = function(){
+                var posts = firebase.firestore().collection("posts")
+                posts.get().then(function(querySnapshot) {
+                  querySnapshot.forEach(function(doc) {
+                    if (doc.data().imgurl == x){
+                      var id = doc.id
+                      posts.doc(id).update({
+                        likes: firebase.firestore.FieldValue.increment(1),
+                        likes_user: firebase.firestore.FieldValue.arrayUnion(user.email)
+                      })
+                    }
+                  });
+                })
+                btn_like.setAttribute("disabled","")
+              }
                 }
         } 
       });
@@ -89,7 +124,6 @@ function mostrarMemes(){
   })
   
 })
-
 }
 
 function mostrarMemesPersonas(){
@@ -109,11 +143,11 @@ function mostrarMemesPersonas(){
         <img onerror="check('${x}')" src=${post.imgurl} id =${post.imgurl} class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
         <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} </figcaption>
       </figure>`)
-    firebase.auth().onAuthStateChanged(function(user) {
+      firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl"){
+            if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl" || user.email == "paolo.garcia@usm.cl"){
               var btn = document.createElement("BUTTON");
-              var btn_like = document.createElement("BUTTON");
+              var btn_like = document.createElement("BUTTON",{id: x});
 
               btn.innerHTML = "Borrar";
               btn_like.innerHTML = "Like"
@@ -123,21 +157,57 @@ function mostrarMemesPersonas(){
 
               btn_like.classList.add('btn');
               btn_like.classList.add('btn-success');
-
+              btn_like.classList.add('btn-lg');
+              if(post.likes_user.includes(user.email)){
+                btn_like.setAttribute("disabled","")
+              }
               document.getElementById(x).appendChild(btn);
               document.getElementById(x).appendChild(btn_like);
 
               btn.onclick = function(){console.log("borrar");}
-              btn_like.onclick = function(){console.log("laik");}
+              //btn_like.setAttribute("onclick",`likes(${x},${user.email})`)
+              btn_like.onclick = function(){
+                var posts = firebase.firestore().collection("posts")
+                posts.get().then(function(querySnapshot) {
+                  querySnapshot.forEach(function(doc) {
+                    if (doc.data().imgurl == x){
+                      var id = doc.id
+                      posts.doc(id).update({
+                        likes: firebase.firestore.FieldValue.increment(1),
+                        likes_user: firebase.firestore.FieldValue.arrayUnion(user.email)
+                      })
+                    }
+                  });
+                })
+                btn_like.setAttribute("disabled","")
+              }
              
             }
-            else if(user.email != null){
-              var btn_like = document.createElement("BUTTON");
+            else{
+              var btn_like = document.createElement("BUTTON",{id: x});
               btn_like.innerHTML = "Like";
               btn_like.classList.add('btn');
               btn_like.classList.add('btn-success');
+              btn_like.classList.add('btn-lg');
+              if(post.likes_user.includes(user.email)){
+                btn_like.setAttribute("disabled","")
+              }
               document.getElementById(x).appendChild(btn_like);
-              btn_like.onclick = function(){console.log("laik");}
+              btn_like.onclick = function(){
+                var posts = firebase.firestore().collection("posts")
+                posts.get().then(function(querySnapshot) {
+                  querySnapshot.forEach(function(doc) {
+                    if (doc.data().imgurl == x){
+                      var id = doc.id
+                      posts.doc(id).update({
+                        likes: firebase.firestore.FieldValue.increment(1),
+                        likes_user: firebase.firestore.FieldValue.arrayUnion(user.email)
+                      })
+                    }
+                  });
+                })
+                btn_like.setAttribute("disabled","")
+              }
                 }
         } 
       });
@@ -162,11 +232,11 @@ function mostrarMemesGatos(){
         <img onerror="check('${x}')" src=${post.imgurl}  class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
         <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} </figcaption>
       </figure>`)
-    firebase.auth().onAuthStateChanged(function(user) {
+      firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl"){
+            if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl" || user.email == "paolo.garcia@usm.cl"){
               var btn = document.createElement("BUTTON");
-              var btn_like = document.createElement("BUTTON");
+              var btn_like = document.createElement("BUTTON",{id: x});
 
               btn.innerHTML = "Borrar";
               btn_like.innerHTML = "Like"
@@ -176,21 +246,57 @@ function mostrarMemesGatos(){
 
               btn_like.classList.add('btn');
               btn_like.classList.add('btn-success');
-
+              btn_like.classList.add('btn-lg');
+              if(post.likes_user.includes(user.email)){
+                btn_like.setAttribute("disabled","")
+              }
               document.getElementById(x).appendChild(btn);
               document.getElementById(x).appendChild(btn_like);
 
               btn.onclick = function(){console.log("borrar");}
-              btn_like.onclick = function(){console.log("laik");}
+              //btn_like.setAttribute("onclick",`likes(${x},${user.email})`)
+              btn_like.onclick = function(){
+                var posts = firebase.firestore().collection("posts")
+                posts.get().then(function(querySnapshot) {
+                  querySnapshot.forEach(function(doc) {
+                    if (doc.data().imgurl == x){
+                      var id = doc.id
+                      posts.doc(id).update({
+                        likes: firebase.firestore.FieldValue.increment(1),
+                        likes_user: firebase.firestore.FieldValue.arrayUnion(user.email)
+                      })
+                    }
+                  });
+                })
+                btn_like.setAttribute("disabled","")
+              }
              
             }
-            else if(user.email != null){
-              var btn_like = document.createElement("BUTTON");
+            else{
+              var btn_like = document.createElement("BUTTON",{id: x});
               btn_like.innerHTML = "Like";
               btn_like.classList.add('btn');
               btn_like.classList.add('btn-success');
+              btn_like.classList.add('btn-lg');
+              if(post.likes_user.includes(user.email)){
+                btn_like.setAttribute("disabled","")
+              }
               document.getElementById(x).appendChild(btn_like);
-              btn_like.onclick = function(){console.log("laik");}
+              btn_like.onclick = function(){
+                var posts = firebase.firestore().collection("posts")
+                posts.get().then(function(querySnapshot) {
+                  querySnapshot.forEach(function(doc) {
+                    if (doc.data().imgurl == x){
+                      var id = doc.id
+                      posts.doc(id).update({
+                        likes: firebase.firestore.FieldValue.increment(1),
+                        likes_user: firebase.firestore.FieldValue.arrayUnion(user.email)
+                      })
+                    }
+                  });
+                })
+                btn_like.setAttribute("disabled","")
+              }
                 }
         } 
       });
@@ -215,11 +321,11 @@ function mostrarMemesPerros(){
         <img onerror="check('${x}')" src=${post.imgurl}  class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
         <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} </figcaption>
       </figure>`)
-    firebase.auth().onAuthStateChanged(function(user) {
+      firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl"){
+            if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl" || user.email == "paolo.garcia@usm.cl"){
               var btn = document.createElement("BUTTON");
-              var btn_like = document.createElement("BUTTON");
+              var btn_like = document.createElement("BUTTON",{id: x});
 
               btn.innerHTML = "Borrar";
               btn_like.innerHTML = "Like"
@@ -229,19 +335,41 @@ function mostrarMemesPerros(){
 
               btn_like.classList.add('btn');
               btn_like.classList.add('btn-success');
-
+              btn_like.classList.add('btn-lg');
+              if(post.likes_user.includes(user.email)){
+                btn_like.setAttribute("disabled","")
+              }
               document.getElementById(x).appendChild(btn);
               document.getElementById(x).appendChild(btn_like);
 
               btn.onclick = function(){console.log("borrar");}
-              btn_like.onclick = function(){console.log("laik");}
+              //btn_like.setAttribute("onclick",`likes(${x},${user.email})`)
+              btn_like.onclick = function(){
+                var posts = firebase.firestore().collection("posts")
+                posts.get().then(function(querySnapshot) {
+                  querySnapshot.forEach(function(doc) {
+                    if (doc.data().imgurl == x){
+                      var id = doc.id
+                      posts.doc(id).update({
+                        likes: firebase.firestore.FieldValue.increment(1),
+                        likes_user: firebase.firestore.FieldValue.arrayUnion(user.email)
+                      })
+                    }
+                  });
+                })
+                btn_like.setAttribute("disabled","")
+              }
              
             }
-            else if(user.email != null){
-              var btn_like = document.createElement("BUTTON");
+            else{
+              var btn_like = document.createElement("BUTTON",{id: x});
               btn_like.innerHTML = "Like";
               btn_like.classList.add('btn');
               btn_like.classList.add('btn-success');
+              btn_like.classList.add('btn-lg');
+              if(post.likes_user.includes(user.email)){
+                btn_like.setAttribute("disabled","")
+              }
               document.getElementById(x).appendChild(btn_like);
               btn_like.onclick = function(){console.log("laik");}
                 }
@@ -271,11 +399,11 @@ function mostrarMemesOtrosAnimales(){
         <img onerror="check('${x}')" src=${post.imgurl}  class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
         <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} </figcaption>
       </figure>`)
-    firebase.auth().onAuthStateChanged(function(user) {
+      firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl"){
+            if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl" || user.email == "paolo.garcia@usm.cl"){
               var btn = document.createElement("BUTTON");
-              var btn_like = document.createElement("BUTTON");
+              var btn_like = document.createElement("BUTTON",{id: x});
 
               btn.innerHTML = "Borrar";
               btn_like.innerHTML = "Like"
@@ -285,21 +413,57 @@ function mostrarMemesOtrosAnimales(){
 
               btn_like.classList.add('btn');
               btn_like.classList.add('btn-success');
-
+              btn_like.classList.add('btn-lg');
+              if(post.likes_user.includes(user.email)){
+                btn_like.setAttribute("disabled","")
+              }
               document.getElementById(x).appendChild(btn);
               document.getElementById(x).appendChild(btn_like);
 
               btn.onclick = function(){console.log("borrar");}
-              btn_like.onclick = function(){console.log("laik");}
+              //btn_like.setAttribute("onclick",`likes(${x},${user.email})`)
+              btn_like.onclick = function(){
+                var posts = firebase.firestore().collection("posts")
+                posts.get().then(function(querySnapshot) {
+                  querySnapshot.forEach(function(doc) {
+                    if (doc.data().imgurl == x){
+                      var id = doc.id
+                      posts.doc(id).update({
+                        likes: firebase.firestore.FieldValue.increment(1),
+                        likes_user: firebase.firestore.FieldValue.arrayUnion(user.email)
+                      })
+                    }
+                  });
+                })
+                btn_like.setAttribute("disabled","")
+              }
              
             }
-            else if(user.email != null){
-              var btn_like = document.createElement("BUTTON");
+            else{
+              var btn_like = document.createElement("BUTTON",{id: x});
               btn_like.innerHTML = "Like";
               btn_like.classList.add('btn');
               btn_like.classList.add('btn-success');
+              btn_like.classList.add('btn-lg');
+              if(post.likes_user.includes(user.email)){
+                btn_like.setAttribute("disabled","")
+              }
               document.getElementById(x).appendChild(btn_like);
-              btn_like.onclick = function(){console.log("laik");}
+              btn_like.onclick = function(){
+                var posts = firebase.firestore().collection("posts")
+                posts.get().then(function(querySnapshot) {
+                  querySnapshot.forEach(function(doc) {
+                    if (doc.data().imgurl == x){
+                      var id = doc.id
+                      posts.doc(id).update({
+                        likes: firebase.firestore.FieldValue.increment(1),
+                        likes_user: firebase.firestore.FieldValue.arrayUnion(user.email)
+                      })
+                    }
+                  });
+                })
+                btn_like.setAttribute("disabled","")
+              }
                 }
         } 
       });
