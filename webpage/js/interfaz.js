@@ -58,8 +58,9 @@ function mostrarMemes(){
         <img onerror="check('${x}')" src=${post.imgurl} class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
         <figcaption class="boton-admin figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} <button id="borrar" style="display: none;" class="btn btn-danger">X Borrar</button> </figcaption>
       </figure>`)
+      var exists = document.getElementById(post.imgurl)
       firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
+        if (user && exists) {
             if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl" || user.email == "paolo.garcia@usm.cl"){
               var btn = document.createElement("BUTTON");
               var btn_like = document.createElement("BUTTON",{id: x});
@@ -98,7 +99,7 @@ function mostrarMemes(){
               }
              
             }
-            else{
+            else if (user && exists){
               var btn_like = document.createElement("BUTTON",{id: x});
               btn_like.innerHTML = "Like";
               btn_like.classList.add('btn');
@@ -151,7 +152,8 @@ function mostrarMemesTop(){
       </figure>`)
       tieneLikes(post.imgurl, post.likes)
       firebase.auth().onAuthStateChanged(function(user) {
-        if (user && post.likes>0 ) {
+      	var exists = document.getElementById(post.imgurl)
+        if (user && exists ) {
             if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl" || user.email == "paolo.garcia@usm.cl"){
               var btn = document.createElement("BUTTON");
               var btn_like = document.createElement("BUTTON",{id: x});
@@ -190,7 +192,7 @@ function mostrarMemesTop(){
               }
              
             }
-            else{
+            else if(user && exists){
               var btn_like = document.createElement("BUTTON",{id: x});
               btn_like.innerHTML = "Like";
               btn_like.classList.add('btn');
@@ -242,8 +244,9 @@ function mostrarMemesPersonas(){
         <img onerror="check('${x}')" src=${post.imgurl} id =${post.imgurl} class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
         <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} </figcaption>
       </figure>`)
+    var exists = document.getElementById(post.imgurl)
       firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
+        if (user && exists) {
             if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl" || user.email == "paolo.garcia@usm.cl"){
               var btn = document.createElement("BUTTON");
               var btn_like = document.createElement("BUTTON",{id: x});
@@ -282,7 +285,7 @@ function mostrarMemesPersonas(){
               }
              
             }
-            else{
+            else if (user && exists){
               var btn_like = document.createElement("BUTTON",{id: x});
               btn_like.innerHTML = "Like";
               btn_like.classList.add('btn');
@@ -332,8 +335,9 @@ function mostrarMemesGatos(){
         <img onerror="check('${x}')" src=${post.imgurl}  class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
         <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} </figcaption>
       </figure>`)
+    var exists = document.getElementById(post.imgurl)
       firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
+        if (user && exists) {
             if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl" || user.email == "paolo.garcia@usm.cl"){
               var btn = document.createElement("BUTTON");
               var btn_like = document.createElement("BUTTON",{id: x});
@@ -372,7 +376,7 @@ function mostrarMemesGatos(){
               }
              
             }
-            else{
+            else if (user && exists){
               var btn_like = document.createElement("BUTTON",{id: x});
               btn_like.innerHTML = "Like";
               btn_like.classList.add('btn');
@@ -421,8 +425,9 @@ function mostrarMemesPerros(){
         <img onerror="check('${x}')" src=${post.imgurl}  class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
         <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} </figcaption>
       </figure>`)
+    var exists = document.getElementById(post.imgurl)
       firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
+        if (user && exists) {
             if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl" || user.email == "paolo.garcia@usm.cl"){
               var btn = document.createElement("BUTTON");
               var btn_like = document.createElement("BUTTON",{id: x});
@@ -461,7 +466,7 @@ function mostrarMemesPerros(){
               }
              
             }
-            else{
+            else if (user && exists){
               var btn_like = document.createElement("BUTTON",{id: x});
               btn_like.innerHTML = "Like";
               btn_like.classList.add('btn');
@@ -499,8 +504,9 @@ function mostrarMemesOtrosAnimales(){
         <img onerror="check('${x}')" src=${post.imgurl}  class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
         <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} </figcaption>
       </figure>`)
+    var exists = document.getElementById(post.imgurl)
       firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
+        if (user && exists) {
             if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl" || user.email == "paolo.garcia@usm.cl"){
               var btn = document.createElement("BUTTON");
               var btn_like = document.createElement("BUTTON",{id: x});
@@ -539,7 +545,7 @@ function mostrarMemesOtrosAnimales(){
               }
              
             }
-            else{
+            else if (user && exists){
               var btn_like = document.createElement("BUTTON",{id: x});
               btn_like.innerHTML = "Like";
               btn_like.classList.add('btn');
