@@ -33,6 +33,7 @@ async function publicar(){
                 await firebase.firestore().collection("posts").add({
                     autor : email,
                     etiquetas : memeEtiquetas,
+                    fileName: imgname,
                     likes : 0,
                     likes_user:[],
                     imgurl : url,
