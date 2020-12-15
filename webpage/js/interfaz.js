@@ -53,10 +53,11 @@ function mostrarMemes(){
   dicPosts.reverse()
   dicPosts.forEach(function(post){
       var x = post.imgurl
+      var y = post.fecha.substr(0, 10)
       document.getElementById("memeContainer").insertAdjacentHTML('beforeend', `
       <figure id =${post.imgurl} class="sombra figure rounded mx-auto" style="height: 45%; width: 45%; background-color: #c8cbce; display:block; ">
         <img onerror="check('${x}')" src=${post.imgurl} class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
-        <figcaption class="boton-admin figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} <button id="borrar" style="display: none;" class="btn btn-danger">X Borrar</button> </figcaption>
+        <figcaption class="boton-admin figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${y} <button id="borrar" style="display: none;" class="btn btn-danger">X Borrar</button> </figcaption>
       </figure>`)
       var exists = document.getElementById(post.imgurl)
       firebase.auth().onAuthStateChanged(function(user) {
@@ -145,10 +146,11 @@ function mostrarMemesTop(){
   dicPosts.reverse()
   dicPosts.forEach(function(post){
       var x = post.imgurl
+      var y = post.fecha.substr(0, 10)
       document.getElementById("memesTop").insertAdjacentHTML('beforeend', `
       <figure id =${post.imgurl} class="sombra figure rounded mx-auto" style="height: 45%; width: 45%; background-color: #f4823f; display:block; ">
         <img onerror="check('${x}')" src=${post.imgurl} class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
-        <figcaption class="boton-admin figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} <button id="borrar" style="display: none;" class="btn btn-danger">X Borrar</button> </figcaption>
+        <figcaption class="boton-admin figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${y} <button id="borrar" style="display: none;" class="btn btn-danger">X Borrar</button> </figcaption>
       </figure>`)
       tieneLikes(post.imgurl, post.likes)
       firebase.auth().onAuthStateChanged(function(user) {
@@ -239,10 +241,11 @@ function mostrarMemesPersonas(){
   dicPosts.reverse()
   dicPosts.forEach(function(post){
     var x = post.imgurl
+    var y = post.fecha.substr(0, 10)
     document.getElementById("memePersonasContainer").insertAdjacentHTML('beforeend', `
       <figure id =${post.imgurl} class="sombra figure rounded mx-auto "  style="height: 45%; width: 45%; background-color: #c8cbce; ">
         <img onerror="check('${x}')" src=${post.imgurl} id =${post.imgurl} class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
-        <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} </figcaption>
+        <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${y} </figcaption>
       </figure>`)
     var exists = document.getElementById(post.imgurl)
       firebase.auth().onAuthStateChanged(function(user) {
@@ -330,10 +333,11 @@ function mostrarMemesGatos(){
   dicPosts.forEach(function(post){
 
     var x = post.imgurl
+    var y = post.fecha.substr(0, 10)
     document.getElementById("memeGatosContainer").insertAdjacentHTML('beforeend', `
       <figure id =${post.imgurl} class="sombra figure rounded mx-auto " style="height: 45%; width: 45%; background-color: #c8cbce; ">
         <img onerror="check('${x}')" src=${post.imgurl}  class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
-        <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} </figcaption>
+        <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${y} </figcaption>
       </figure>`)
     var exists = document.getElementById(post.imgurl)
       firebase.auth().onAuthStateChanged(function(user) {
@@ -420,10 +424,12 @@ function mostrarMemesPerros(){
   dicPosts.reverse()
   dicPosts.forEach(function(post){
     var x = post.imgurl
+    var y = post.fecha.substr(0, 10)
+
     document.getElementById("memePerrosContainer").insertAdjacentHTML('beforeend', `
       <figure id =${post.imgurl} class="sombra figure rounded mx-auto " style="height: 45%; width: 45%; background-color: #c8cbce; ">
         <img onerror="check('${x}')" src=${post.imgurl}  class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
-        <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} </figcaption>
+        <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${y} </figcaption>
       </figure>`)
     var exists = document.getElementById(post.imgurl)
       firebase.auth().onAuthStateChanged(function(user) {
@@ -499,10 +505,11 @@ function mostrarMemesOtrosAnimales(){
   dicPosts.reverse()
   dicPosts.forEach(function(post){
     var x = post.imgurl
+    var y = post.fecha.substr(0, 10)
     document.getElementById("memeAnimalesContainer").insertAdjacentHTML('beforeend', `
       <figure id =${post.imgurl} class="sombra figure rounded mx-auto " style="height: 45%; width: 45%; background-color: #c8cbce; ">
         <img onerror="check('${x}')" src=${post.imgurl}  class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
-        <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${post.fecha} </figcaption>
+        <figcaption class="figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${y} </figcaption>
       </figure>`)
     var exists = document.getElementById(post.imgurl)
       firebase.auth().onAuthStateChanged(function(user) {
