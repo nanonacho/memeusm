@@ -6,6 +6,7 @@ async function publicar(){
         var storageRef = firebase.storage().ref();
         var email = user.email
         var img = document.getElementById("FormControlFile").files[0]
+        var imgname = Date.now()
         var urlImagen = URL.createObjectURL(img)
         imagen = new Image();
         imagen.src = urlImagen;
@@ -19,9 +20,9 @@ async function publicar(){
           console.log(results)
           });
         let memeEtiquetas = []
-        await storageRef.child("memes/" + img.name).put(img)
-        await storageRef.child("memes/"+img.name).getMetadata().then(async function(metadata){
-            await storageRef.child("memes/"+img.name).getDownloadURL().then(async function(url){
+        await storageRef.child("memes/" + imgname).put(img)
+        await storageRef.child("memes/"+imgname).getMetadata().then(async function(metadata){
+            await storageRef.child("memes/"+imgname).getDownloadURL().then(async function(url){
                 var otrosAnimales = ["bird","horse","sheep","cow","elephant","bear","zebra","giraffe"]
                 objects.forEach(function(objeto){
                     if (!memeEtiquetas.includes(objeto.label) && (objeto.label == "person" || objeto.label == "dog" || objeto.label == "cat" || otrosAnimales.includes(objeto.label))){
@@ -48,4 +49,3 @@ async function publicar(){
     }
 
 }
-
