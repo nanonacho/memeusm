@@ -1,6 +1,7 @@
 async function publicar(){
     var user = firebase.auth().currentUser
     if (user){
+        document.getElementById("upload-overlay").style.display = "block"
         let objectDetector;
         let objects = []
         var storageRef = firebase.storage().ref();
@@ -41,6 +42,7 @@ async function publicar(){
                 })
                 
             })
+            document.getElementById("upload-overlay").style.display = "block"
             alert("Se ha publicado")
     })
     window.location = "index.html"
