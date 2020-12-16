@@ -42,7 +42,6 @@ function tieneLikes(id,likes){
 }
 
 function mostrarMemes(label,orden=fecha){
-
   posts = firebase.firestore().collection("posts").orderBy(orden)
   var otrosAnimales = ["bird","horse","sheep","cow","elephant","bear","zebra","giraffe"]
   posts.get().then(function(querySnapshot) {
@@ -53,8 +52,10 @@ function mostrarMemes(label,orden=fecha){
       }
       else if(label == "otros")
       {
-        if(doc.data().etiquetas.includes(otrosAnimales[animal])){
-          dicPosts.push(doc.data())
+        for (var animal in otrosAnimales){
+          if(doc.data().etiquetas.includes(otrosAnimales[animal])){
+            dicPosts.push(doc.data())
+          }
         }
       }
       else if (label == "none"){
