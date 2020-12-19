@@ -82,7 +82,6 @@ function mostrarMemes(label,orden=fecha){
         <figcaption class="boton-admin figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${autor} Fecha: ${y} <button id="borrar" style="display: none;" class="btn btn-danger">X Borrar</button> </figcaption>
       </figure>`)
         i = i + 1
-        console.log(i)
 
       }
       else if (orden != 'likes'){
