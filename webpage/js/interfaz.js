@@ -44,6 +44,7 @@ function tieneLikes(id,likes){
 function mostrarMemes(label,orden=fecha){
   posts = firebase.firestore().collection("posts").orderBy(orden)
   var otrosAnimales = ["bird","horse","sheep","cow","elephant","bear","zebra","giraffe"]
+  var i = 0
   posts.get().then(function(querySnapshot) {
     var dicPosts = []
     querySnapshot.forEach(function(doc) {
@@ -66,15 +67,18 @@ function mostrarMemes(label,orden=fecha){
   dicPosts.forEach(function(post){
       var x = post.imgurl
       var y = post.fecha.substr(0, 10)
-      if(orden == 'likes'){
+      
+      if(orden == 'likes' && i != 3){
         document.getElementById("memeContainer").insertAdjacentHTML('beforeend', `
       <figure id =${post.imgurl} class="sombra figure rounded mx-auto" style="height: 45%; width: 45%; background-color: #f4823f; display:block; ">
         <img onerror="check('${x}')" src=${post.imgurl} class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
         <figcaption class="boton-admin figure-caption text-center font-weight-bold"> Likes: ${post.likes}  Autor: ${post.autor} Fecha: ${y} <button id="borrar" style="display: none;" class="btn btn-danger">X Borrar</button> </figcaption>
       </figure>`)
+        i = i + 1
+        console.log(i)
 
       }
-      else{
+      else if (orden != 'likes'){
         document.getElementById("memeContainer").insertAdjacentHTML('beforeend', `
       <figure id =${post.imgurl} class="sombra figure rounded mx-auto" style="height: 45%; width: 45%; background-color: #c8cbce; display:block; ">
         <img onerror="check('${x}')" src=${post.imgurl} class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
