@@ -67,10 +67,6 @@ function mostrarMemes(label,orden=fecha){
   dicPosts.forEach(function(post){
       var x = post.imgurl
       var y = post.fecha.substr(0, 10)
-<<<<<<< HEAD
-      
-      if(orden == 'likes' && i != 3){
-=======
       if (post.autor.includes("@usm.cl")){
         var autor = post.autor.replace(post.autor.substr(-7),"")
        
@@ -79,8 +75,7 @@ function mostrarMemes(label,orden=fecha){
         var autor = post.autor.replace(post.autor.substr(-15),"")
         
       }
-      if(orden == 'likes'){
->>>>>>> debf7349b9af94805728bca176b8b4b537fa64db
+      if(orden == 'likes' && i != 3){
         document.getElementById("memeContainer").insertAdjacentHTML('beforeend', `
       <figure id =${post.imgurl} class="sombra figure rounded mx-auto" style="height: 45%; width: 45%; background-color: #f4823f; display:block; ">
         <img onerror="check('${x}')" src=${post.imgurl} class ="rounded mx-auto d-block img-thumbnail img-fluid rounded figure-img" style="border-radius:10px;">
