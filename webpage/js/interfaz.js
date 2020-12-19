@@ -73,11 +73,11 @@ function mostrarMemes(label,orden=fecha){
 =======
       if (post.autor.includes("@usm.cl")){
         var autor = post.autor.replace(post.autor.substr(-7),"")
-        console.log(autor)
+       
       }
       else{
         var autor = post.autor.replace(post.autor.substr(-15),"")
-        console.log(autor)
+        
       }
       if(orden == 'likes'){
 >>>>>>> debf7349b9af94805728bca176b8b4b537fa64db
