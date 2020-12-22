@@ -95,7 +95,7 @@ function mostrarMemes(label,orden=fecha){
       var exists = document.getElementById(post.imgurl)
       firebase.auth().onAuthStateChanged(function(user) {
         if (user && exists) {
-            if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl" || user.email == "paolo.garcia@usm.cl"){
+            if(user.email == "patricio.martinezc@usm.cl" || user.email == "ignacio.alvaradome@usm.cl"){
               var btn = document.createElement("BUTTON");
               var btn_like = document.createElement("BUTTON",{id: x});
 
