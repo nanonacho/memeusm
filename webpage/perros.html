@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memes</title>
+    <title>MemesUSM</title>
     <link rel="stylesheet" href="css\bootstrap.min.css">
     <link rel="stylesheet" href="css\style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="icon" href="assets/usm.ico">
     <script src="js\jquery.min.js"></script>
     <script src="js\bootstrap.min.js"></script>
     
@@ -42,6 +43,7 @@
 <body class="fondo" onload="mostrarMemes('dog','fecha')">
     <!–– Inicio de menu de navegacion ––>
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" id="topheader">
+  <img src="assets/usm.ico" class="logo">
   <a class="navbar-brand" href="#">MemesUSM</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -73,13 +75,13 @@
       <div class="navbar-collapse">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" id="in" style="display: none;" href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a class="nav-link" id="in" style="display: none;" href="login.html"><i class="fas fa-sign-in-alt"></i> Iniciar sesión</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="reg" style="display: none;" href="register.html"><i class="far fa-edit"></i> Registro</a>
+                <a class="nav-link" id="reg" style="display: none;" href="register.html"><i class="far fa-edit"></i> Registrarse</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" onclick="logout()" id="logout" style="display: none;" href="#"><i class="fas fa-address-card"></i> Desloguearse</a>
+                <a class="nav-link" onclick="logout()" id="logout" style="display: none;" href="#"><i class="fas fa-address-card"></i> Cerrar sesión</a>
             </li>
         </ul>
     </div>
@@ -93,7 +95,7 @@
     <div id="overlay">
     <div class="container" >
     <div class="jumbotron alert alert-danger" style="margin-top: 100px;">
-    <h1 class="lead ">Te has deslogueado con exito.</h1>
+    <h1 class="lead ">Haz cerrado sesión  con exito.</h1>
     <h1 class="lead ">Redireccionando a la pagina principal por favor espere...</h1>
     </div>
     </div>
