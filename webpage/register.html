@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MemesUSM</title>
+    <title>MemeUSM</title>
     <link rel="stylesheet" href="css\bootstrap.min.css">
     <link rel="stylesheet" href="css\style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="icon" href="assets/usm.ico">
     <script src="js\jquery.min.js"></script>
     <script src="js\bootstrap.min.js"></script>
     <script src="js\register.js"></script>
@@ -44,7 +43,6 @@
 
 <!–– Inicio de menu de navegacion ––>
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" id="topheader">
-  <img src="assets/usm.ico" class="logo">
   <a class="navbar-brand" href="#">MemesUSM</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -76,13 +74,13 @@
       <div class="navbar-collapse">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" id="in" style="display: block;" href="login.html"><i class="fas fa-sign-in-alt"></i> Iniciar sesión</a>
+                <a class="nav-link" id="in" style="display: block;" href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" id="reg" style="display: block;" href="register.html"><i class="far fa-edit"></i> Registrarse</a>
+                <a class="nav-link" id="reg" style="display: block;" href="register.html"><i class="far fa-edit"></i> Registro</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" onclick="logout()" id="logout" style="display: none;" href="#"><i class="fas fa-address-card"></i> Cerrar sesión</a>
+                <a class="nav-link" onclick="logout()" id="logout" style="display: none;" href="#"><i class="fas fa-address-card"></i> Desloguearse</a>
             </li>
         </ul>
     </div>
@@ -96,7 +94,7 @@
 <div id="overlay">
   <div class="container" >
   <div class="jumbotron alert alert-success" style="margin-top: 100px;">
-  <h1 class="lead ">Te haz registrado con exito.</h1>
+  <h1 class="lead ">Te has registrado con exito.</h1>
   <h1 class="lead ">Redireccionando a la pagina principal por favor espere...</h1>
 </div>
 </div>
@@ -107,21 +105,18 @@
   
     <div class="container">
         <div class="container">
-        <h1>Bienvenido al menú de Registro</h1>
+        <h1>Bienvenido al menu de registro</h1>
         <div class="form-group">
-        <i class="fa fa-envelope" aria-hidden="true"></i>
-        <label for="uname"><b>Correo</b></label>
-        <input class="form-control" id="email" type="email" placeholder="Ingresa tu correo" name="uname" required>
+        <label for="uname"><b>Email</b></label>
+        <input class="form-control" id="email" type="email" placeholder="Ingresa tu email" name="uname" required>
         </div>  
         <div class="form-group">
-         <i class="fa fa-lock" aria-hidden="true"></i>
          <label for="psw"><b>Contraseña</b></label>
          <input class="form-control" id="password" type="password" placeholder="Ingresa tu contraseña" name="psw" required>
-         <br>
          <input class="form-control" id="password_conf" type="password" placeholder="Reingresa tu contraseña" name="psw" required>
         </div>
         <br>
-            <button onclick="register()" id="register" class="btn btn-primary">Registrarse</button>
+            <button onclick="register()" id="register" class="btn btn-primary">Registrate</button>
             
     </div>
 
